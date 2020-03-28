@@ -4,14 +4,17 @@ import java.util.Hashtable;
 
 public class LinkedListAnswers {
     public static Node removeDuplicates(Node head) {
-        Node n = head;
-        Hashtable<Integer, Integer> uniqueValues = new Hashtable<>(2, 1);
-        while(n.next != null) {
-            uniqueValues.put(n.data, n.data);
-            if(uniqueValues.contains(n.next.data)) {
-                n.next = n.next.next;
+        Node firstPointer = head;
+
+        while(firstPointer.next != null) {
+            Node secondPointer = firstPointer.next;
+            while(secondPointer.next != null) {
+                if(firstPointer.data == secondPointer.data) {
+                    firstPointer.next = firstPointer.next.next;
+                }
+                secondPointer = secondPointer.next;
             }
-            n = n.next;
+
         }
         return head;
     }

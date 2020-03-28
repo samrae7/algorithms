@@ -25,6 +25,7 @@ public class LinkedListAnswersTest {
         linkedList.appendToTail(3);
         linkedList.appendToTail(2);
         linkedList.appendToTail(1);
+        linkedList.appendToTail(5);
         int fourthItem = linkedList.next.next.next.data;
         Assert.assertEquals(fourthItem, 2);
         LinkedListAnswers.removeDuplicates(linkedList);
